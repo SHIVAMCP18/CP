@@ -1,0 +1,74 @@
+set clipboard=unnamed
+syntax on
+
+let mapleader = ","
+map <leader> so :source $HOME\_vimrc<CR>
+
+source $VIMRUNTIME/vimrc_example.vim
+
+au GUIEnter * simalt ~x
+set hls
+set is
+set cb=unnamed
+set gfn=Fixedsys:h10
+set ts=4
+set sw=4
+set si
+cd C:\Users\satya\projects 
+
+inoremap { {}<Left>
+inoremap {<CR> {<CR>}<Esc>O
+inoremap {{ {
+inoremap {} {}
+
+autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -std=c++14 % -o %:r -Wl,--stack,268435456<CR>
+autocmd filetype cpp nnoremap <F10> :!%:r<CR>
+autocmd filetype cpp nnoremap <C-C> :s/^\(\s*\)/\1\/\/<CR> :s/^\(\s*\)\/\/\/\//\1<CR> $
+
+autocmd filetype java nnoremap <F9> :w <bar> !javac % && java %:r<CR>
+autocmd filetype python nnoremap <F9> :w <bar> !python %<CR>
+autocmd filetype ruby nnoremap <F9> :w <bar> !ruby %<CR>
+
+set nu
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set rnu
+    autocmd BufLeave,FocusLost,InsertEnter * set nornu
+augroup END
+
+set diffexpr=MyDiff()
+function MyDiff()
+  " ... (your existing MyDiff function)
+endfunction
+
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h14
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" Your existing plugin configurations
+Plug 'chriskempson/base16-vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'w0rp/ale'
+Plug 'majutsushi/tagbar'
+
+" Additional plugins
+Plug 'vim-airline/vim-airline'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf.vim'
+Plug 'thinca/vim-quickrun'
+Plug 'airblade/vim-gitgutter' " Add vim-gitgutter plugin
+
+call plug#end()
+
+colorscheme base16-3024
