@@ -1,3 +1,1 @@
-"I have organized my Vim scripts for competitive programming in the C++ folder. Attached are the codes for the Vimrc file."
-
-"if you are Gvim(windows) User then only use this .vimrc otherwise go to my dotfiles repository and in vim folder i added .vimrc file.(this file is for linux/wsl users)"
+This folder contains my accepted solutions to various problems from Codeforces contests and practice sessions, all written in C++. Each file represents a solution to a specific problem and is named according to the corresponding problem code or name. Feel free to explore the solutions, learn from them, or even suggest improvements if you come across any! Additionally, I update this repository every Sunday with my latest accepted solutions. Happy coding! :)
